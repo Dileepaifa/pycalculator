@@ -6,6 +6,7 @@
 import sys
 
 from pycalculator.parser import Parser
+from pycalculator.operations import operate
 
 
 def validate_argv(argv):
@@ -17,32 +18,11 @@ if __name__ == "__main__":
     validate_argv(sys.argv)
 
     TOKENS = []
-
     p = Parser(sys.argv[1])
-    token = p.next_token()
-    """
-    
-    TOKENS.append(token)
-
 
     token = p.next_token()
-    TOKENS.append(token)
-    
-    token = p.next_token()
-    TOKENS.append(token)
-    
-    
-    token = p.next_token()
-    TOKENS.append(token)
-    token = p.next_token()
-    TOKENS.append(token)
-    token = p.next_token()
-    TOKENS.append(token)
-    """
-    
-    
     while token != None:
         TOKENS.append(token)
         token = p.next_token()
-    
-    print(TOKENS)
+
+    operate(TOKENS)

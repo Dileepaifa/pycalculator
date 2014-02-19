@@ -7,15 +7,6 @@ import re
 from pycalculator.states import STATES, FINAL_STATES, S0
 
 
-class Character(object):
-    def __init__(self, char):
-        self.char = char
-
-
-class Token(object):
-    pass
-
-
 class Parser(object):
 
     """Input string parser"""
