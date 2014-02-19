@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """calc script."""
 
 import sys
 
-from pycalculator import parser
+from pycalculator.parser import Parser
 
 
 def validate_argv(argv):
@@ -14,4 +15,34 @@ def validate_argv(argv):
 
 if __name__ == "__main__":
     validate_argv(sys.argv)
-    p = parser.Parser(sys.argv[1])
+
+    TOKENS = []
+
+    p = Parser(sys.argv[1])
+    token = p.next_token()
+    """
+    
+    TOKENS.append(token)
+
+
+    token = p.next_token()
+    TOKENS.append(token)
+    
+    token = p.next_token()
+    TOKENS.append(token)
+    
+    
+    token = p.next_token()
+    TOKENS.append(token)
+    token = p.next_token()
+    TOKENS.append(token)
+    token = p.next_token()
+    TOKENS.append(token)
+    """
+    
+    
+    while token != None:
+        TOKENS.append(token)
+        token = p.next_token()
+    
+    print(TOKENS)
