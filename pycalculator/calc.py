@@ -5,8 +5,9 @@
 
 import sys
 
-from pycalculator.parser import Parser
-from pycalculator.operations import operate
+#from pycalculator.parser import Parser
+#from pycalculator.operations import operate
+from pycalculator.grammar import Analyzer
 
 
 def validate_argv(argv):
@@ -17,12 +18,15 @@ def validate_argv(argv):
 if __name__ == "__main__":
     validate_argv(sys.argv)
 
-    TOKENS = []
-    p = Parser(sys.argv[1])
+    #TOKENS = ['$']
+    #p = Parser(sys.argv[1])
 
-    token = p.next_token()
-    while token != None:
-        TOKENS.append(token)
-        token = p.next_token()
+    #token = p.next_token()
+    #while token != None:
+    #    TOKENS.append(token)
+    #    token = p.next_token()
 
-    operate(TOKENS)
+    #operate(TOKENS)
+
+    analzr = Analyzer(sys.argv[1])
+    print(analzr.analyze())
