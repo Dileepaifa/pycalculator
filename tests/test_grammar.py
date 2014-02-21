@@ -34,3 +34,15 @@ class GrammarTestCase(unittest.TestCase):
     def test_grammar_div_sum_int_float(self):
         analzr = Analyzer("3.2+4/2+6/3")
         self.assertEqual(analzr.analyze(), 7.2, 'Cacl sum and div.')
+
+    def test_grammar_sum_mult_int_1(self):
+        analzr = Analyzer("3*5+20")
+        self.assertEqual(analzr.analyze(), 35, 'Cacl sum and div.')
+
+    def test_grammar_sum_mult_int_2(self):
+        analzr = Analyzer("5+3*5")
+        self.assertEqual(analzr.analyze(), 20, 'Cacl sum and div.')
+
+    def test_grammar_sum_mult_pow(self):
+        analzr = Analyzer("5+3*5^2")
+        self.assertEqual(analzr.analyze(), 80, 'Cacl sum and div.')

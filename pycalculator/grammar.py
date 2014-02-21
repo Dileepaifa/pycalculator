@@ -97,7 +97,7 @@ class Analyzer(object):
             return result
         else:
             try:
-                float(self.preanalysis)  # TODO: not all are float
+                float(self.preanalysis)
             except ValueError:
                 raise Exception('Found ' + self.preanalysis + 'expecting "(" or number')
             return self.number()
@@ -106,7 +106,10 @@ class Analyzer(object):
         if self.preanalysis == '$':
             raise Exception('Found $, expecting token')
         try:
-            result = float(self.preanalysis)  # TODO: not all are float
+            if '.' in self.preanalysis:
+                result = float(self.preanalysis)
+            else:
+                result = int(self.preanalysis)
         except ValueError:
             raise Exception('Found ' + self.preanalysis + 'expecting number')
         self.next_token()
