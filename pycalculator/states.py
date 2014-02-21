@@ -11,7 +11,8 @@ STATES = {
     ('S1', 'S11'): {'return_token': False},
     ('S1', 'S3'): {'return_token': True},
     ('S1', 'S4'): {'return_token': True},
-    ('S1', 'S5'): {'return_token': False},
+    ('S1', 'S5'): {'return_token': True},
+    ('S1', 'S6'): {'return_token': True},
     ('S1', 'S7'): {'return_token': True},
 
     ('S11', 'S2'): {'return_token': False},
@@ -19,7 +20,8 @@ STATES = {
     ('S2', 'S2'): {'return_token': False},
     ('S2', 'S3'): {'return_token': True},
     ('S2', 'S4'): {'return_token': True},
-    ('S2', 'S5'): {'return_token': False},
+    ('S2', 'S5'): {'return_token': True},
+    ('S2', 'S6'): {'return_token': True},
     ('S2', 'S7'): {'return_token': True},
 
     ('S3', 'S1'): {'return_token': True},
@@ -27,7 +29,6 @@ STATES = {
     ('S4', 'S1'): {'return_token': True},
 
     ('S5', 'S1'): {'return_token': True},
-    ('S5', 'S6'): {'return_token': False},
 
     ('S6', 'S1'): {'return_token': True},
 
@@ -59,6 +60,8 @@ def S1(char):
         return S11
     elif char == '*':
         return S5
+    elif char == '^':
+        return S6
     elif char == '/':
         return S7
     else:
@@ -81,6 +84,8 @@ def S2(char):
         return S4
     elif char == '*':
         return S5
+    elif char == '^':
+        return S6
     elif char == '/':
         return S7
     else:
@@ -104,8 +109,6 @@ def S4(char):
 def S5(char):
     if char.isdigit():
         return S1
-    elif char == '*':
-        return S6
     else:
         raise Exception('Unexpected character ' + char)
 
