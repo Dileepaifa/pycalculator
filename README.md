@@ -9,9 +9,11 @@ Python version: 3.X
 
 Usage:  
 
+<pre>
 python pycalculator/calc.py "5+3 -2"  
 python pycalculator/calc.py "5+3 -2222     + 55/22.987/44"  
-python pycalculator/calc.py "5+3^2"  
+python pycalculator/calc.py "5+3^2"
+</pre>  
 
 It currently supports the operators: +, -, *, /, ^
 
@@ -31,6 +33,7 @@ Grammar
 
 This is the calculator's grammar:  
 
+<pre>
 E  --> T | E opadd T  
 T  --> F | T opmult F  
 F  --> P | F opexp P  
@@ -39,9 +42,11 @@ N -->  'integer' | 'decimal'
 opadd  --> '+' | '-'  
 opmult --> '*' | '/'  
 opexp  --> '^'  
+</pre>
 
 This grammar will work correctly with the operator precedence. However, it is left-recursive and the calculator will reed tokens from left to right, so we need to convert it to an equivalent right-recursive grammar:
 
+<pre>
 S  --> E  
 E  --> T E’  
 E’ --> opadd T E’ | ε  
@@ -54,6 +59,7 @@ N  --> ‘integer’ | ‘decimal’
 opadd  --> '+' | '-'  
 opmult --> '*' | '/'  
 opexp  --> '^'  
+</pre>
 
 Parsing
 -------
@@ -62,6 +68,7 @@ The calculator uses a recursive implementation of a LL parser (top-down).
 
 Naming the rules:  
 
+<pre>
 0   S  --> E  
 1   E  --> T E’  
 2   E’ --> + T E’  
@@ -77,30 +84,22 @@ Naming the rules:
 12  P  --> N  
 13  P  --> ( E )  
 14  N  --> 'number'  
+</pre>
 
 Parsing table:  
 
-== == === === === === === === === ===  
+<pre>
     +   -   *   /   ^   num (   )   $  
-== == === === === === === === === ===  
 S   0   0   0   0   0   0   0   0   0  
--- -- --- --- --- --- --- --- --- ---
 E   1   1   1   1   1   1   1   1   -  
--- -- --- --- --- --- --- --- --- ---
 E'  2   3   4   4   4   4   4   4   4  
--- -- --- --- --- --- --- --- --- ---
 T   5   5   5   5   5   5   5   5   -  
--- -- --- --- --- --- --- --- --- ---
 T'  8   8   6   7   8   8   8   8   8  
--- -- --- --- --- --- --- --- --- ---
 F   9   9   9   9   9   9   9   9   -  
--- -- --- --- --- --- --- --- --- ---
 F' 11  11  11  11  10  11  11  11  11  
--- -- --- --- --- --- --- --- --- ---
 P   -   -   -   -  -   12  13   -   -  
--- -- --- --- --- --- --- --- --- ---
 N   -   -   -   -   -  14   -   -   -  
-== == === === === === === === === ===  
+</pre>
 
 Example: 2 * 5 + 3  
 
