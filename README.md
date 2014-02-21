@@ -7,9 +7,11 @@ It reads a string from the command line and returns the calculation.
 
 Python version: 3.X
 
-Usage: python pycalculator/calc.py "5+3 -2"  
-       python pycalculator/calc.py "5+3 -2222     + 55/22.987/44"  
-       python pycalculator/calc.py "5+3^2"  
+Usage:  
+
+python pycalculator/calc.py "5+3 -2"  
+python pycalculator/calc.py "5+3 -2222     + 55/22.987/44"  
+python pycalculator/calc.py "5+3^2"  
 
 It currently supports the operators: +, -, *, /, ^
 
@@ -77,7 +79,7 @@ Naming the rules:
 14  N  --> 'number'  
 
 Parsing table:  
-
+`<code>`
     +   -   *   /   ^   num (   )   $  
 S   0   0   0   0   0   0   0   0   0  
 E   1   1   1   1   1   1   1   1   -  
@@ -119,3 +121,4 @@ i F'T'$       3 $
 F'T'$         $  
 T'$           $  
 $             $  
+`</code>`
