@@ -3,3 +3,6 @@ python:
   - "3.3"
 install: "pip install -r requirements_dev.txt"
 script: nosetests
+branches:
+  only:
+    - master
