@@ -1,6 +1,8 @@
 pycalculator
 ============
 
+[![Build Status](https://travis-ci.org/juliotrigo/pycalculator.png?branch=master)](https://travis-ci.org/juliotrigo/pycalculator)
+
 A simple calculator in Python.
 
 It reads a string from the command line and returns the calculation.
