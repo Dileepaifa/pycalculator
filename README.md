@@ -25,7 +25,19 @@ It currently supports the operators: +, -, *, /, ^
 
 Additionally, if we need to add new operations to the calculator we just need to modify the graph of the AFD (states module) and add new rules to the grammar (grammar module).
 
-Tests: python -m unittest discover
+Tests:
+
+<pre>
+python -m unittest discover
+
+nosetests
+</pre>
+
+BDD:
+
+<pre>
+behave
+</pre>
 
 Parser
 ------
