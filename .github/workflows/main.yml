@@ -18,10 +18,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements_dev.txt
     - name: Run Migrations
-      run: python manage.py migrate
+      run: python *.py migrate
     - name: Run Tests
       run: |
-        python manage.py test
+        python *.py test
   sonarqube:
     runs-on: ubuntu-latest
     steps:
