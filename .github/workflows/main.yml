@@ -30,7 +30,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: SonarQube Scan
-      run: sonar-scanner \
+      run: Sonar-Scanner \
              -Dsonar.projectKey=Python-code \
              -Dsonar.sources=. \
              -Dsonar.host.url=http://20.121.69.96:9000 \
