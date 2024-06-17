@@ -2,7 +2,7 @@ name: python-code-analysis
 
 on:
   push:
-    branches:
+    branches  :
       - master
 jobs:
   build-test:
@@ -26,11 +26,13 @@ jobs:
   sonarqube:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@master
-      env:
-        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-        SONAR_HOST_URL: ${{secrets.SONAR_HOST_URL}}
+      run: sonar-scanner \
+             -Dsonar.projectKey=Python-code \
+             -Dsonar.sources=. \
+             -Dsonar.host.url=http://20.121.69.96:9000 \
+             -Dsonar.token=sqp_bd8d6f4dd6aeed7fbc6c768a8cb37af55b81f4b6
+     
