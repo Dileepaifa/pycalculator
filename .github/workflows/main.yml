@@ -22,7 +22,6 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
-
   sonarqube:
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +29,8 @@ jobs:
       with:
         fetch-depth: 0
     - name: SonarQube Scan
-      run: Sonar-Scanner \
+      run:
+        sonar-scanner \
              -Dsonar.projectKey=Python-code \
              -Dsonar.sources=. \
              -Dsonar.host.url=http://20.121.69.96:9000 \
