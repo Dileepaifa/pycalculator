@@ -19,10 +19,10 @@ jobs:
         pip install -r requirements_dev.txt
         pip install --upgrade setuptools wheel
     - name: Run Migrations
-      run: python *.py migrate
+      run: python calc.py migrate
     - name: Run Tests
       run: |
-        python *.py test
+        python calc.py test
   sonarqube:
     runs-on: ubuntu-latest
     steps:
